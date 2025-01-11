@@ -23,15 +23,6 @@ class WeatherView extends StatelessWidget {
       child: Consumer<WeatherViewModel>(
           builder: (context, weatherViewModel, _) {
               return Scaffold(
-                floatingActionButton: Column(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    IconButton(onPressed: (){
-                      print(weatherViewModel.unitSystem);
-
-                    }, icon: Icon(Icons.add)),
-                  ],
-                ),
                 extendBodyBehindAppBar: true,
                 appBar: PreferredSize(
                   preferredSize: Size.fromHeight(75.0),
