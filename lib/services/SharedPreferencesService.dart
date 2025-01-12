@@ -1,6 +1,4 @@
-
 import 'dart:convert';
-
 import 'package:basf_weather_app_for_malaysia_scuba_diving/models/ScubaSpotModel.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
@@ -23,7 +21,7 @@ class SharedPreferencesService {
     }
   }
 
-  // Store scuba spot to SharedPreferences
+  // Store scuba spot in SharedPreferences
   Future<void> storeRecentScubaSpot(ScubaSpotModel scubaSpot) async {
     try {
       SharedPreferences prefs = await SharedPreferences.getInstance();

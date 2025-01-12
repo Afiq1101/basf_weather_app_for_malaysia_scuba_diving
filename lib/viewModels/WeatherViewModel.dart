@@ -1,8 +1,4 @@
-
-import 'dart:convert';
 import 'dart:developer';
-import 'dart:ui';
-
 import 'package:basf_weather_app_for_malaysia_scuba_diving/models/ScubaSpotModel.dart';
 import 'package:basf_weather_app_for_malaysia_scuba_diving/models/WeatherModel.dart';
 import 'package:basf_weather_app_for_malaysia_scuba_diving/services/ScubaSpotService.dart';
@@ -92,7 +88,7 @@ class WeatherViewModel extends ChangeNotifier {
   }
 
 
-  // Fetch and parse weather data
+  // Fetch and parse weather data into WeatherModel
   Future<void> getWeather({required double longitude, required double latitude}) async {
     try {
       Map<String, dynamic> map = await WeatherService().fetchMarineWeatherGenezio(
@@ -109,7 +105,7 @@ class WeatherViewModel extends ChangeNotifier {
     }
   }
 
-  // Fetch the most recent scuba spot or use a default
+  // Fetch the most recent scuba spot or use the first scuba spot in list as a default
   Future<void> getRecentScubaSpot() async {
     try {
       scubaSpotModel = (await sharedPreferencesService.getRecentScubaSpot()) ?? ScubaSpotService.scubaSpots.first;
@@ -119,7 +115,7 @@ class WeatherViewModel extends ChangeNotifier {
     }
   }
 
-  // Update scuba spot and fetch new weather
+  // Update scuba spot and fetch new weather data
   Future<void> changeScubaSpotAndWeather(ScubaSpotModel newScubaSpotModel) async {
     await _withLoadingState(() async {
       scubaSpotModel = newScubaSpotModel;
@@ -139,7 +135,6 @@ class WeatherViewModel extends ChangeNotifier {
   String minTemp = "N/A";
   String averageVisibility = "N/A";
   String averageHumidity = "N/A";
-//  String windSpeed = "N/A";
 
   String hourTemp = "--";
   String weatherCondition = "N/A";
@@ -220,7 +215,7 @@ class WeatherViewModel extends ChangeNotifier {
     String startTime = hours.first.time;
 
     for (int i = 1; i < hours.length; i++) {
-      // Check if the condition code changes
+      // check if the condition code changes
       if (hours[i].condition.code != currentConditionCode) {
         return "$currentConditionText conditions from ${formatTime(startTime)}-${formatTime(hours[i].time)}.";
       }
@@ -327,10 +322,8 @@ class WeatherViewModel extends ChangeNotifier {
 
       WeatherModel? weatherModelHere = weatherModel;
 
-      ScubaSpotModel scubaSpotModelHere = scubaSpotModel;
-      if(scubaSpotModelHere != null){
-        scubaSpotLabel = scubaSpotModelHere.scubaSpotLabel;
-      }
+        scubaSpotLabel = scubaSpotModel.scubaSpotLabel;
+
 
       if (weatherModelHere?.forecastDays != null && weatherModelHere!.forecastDays.isNotEmpty) {
         forecastDays = weatherModelHere.forecastDays;

@@ -74,7 +74,7 @@ class ForecastDay {
   }
 
   String getDayOfWeekFromEpoch() {
-    // Convert the epoch time to DateTime
+    // convert the epoch time to DateTime
     DateTime date = DateTime.fromMillisecondsSinceEpoch(dateEpoch * 1000);
 
     //return "Today" if its today...lol
@@ -84,7 +84,7 @@ class ForecastDay {
     }
     List<String> daysOfWeek = ["SUN","MON", "TUE", "WED", "THU", "FRI", "SAT", ];
 
-    // Return the day of the week
+    // return the day of the week
     return daysOfWeek[date.weekday % 7];
   }
 
@@ -192,7 +192,7 @@ class Tide {
   }
 
   String extractTideTime() {
-    // Extract HH:mm
+    // get only HH:mm
     return tideTime.substring(11);
   }
 
@@ -201,11 +201,11 @@ class Tide {
   String getTideHeight(bool isImperial) {
     double heightInMeters = double.parse(tideHeightMt);
     if (isImperial) {
-      // Convert to feet and return
+      // change to feet and return
       double heightInFeet = heightInMeters * 3.28084;
       return "${heightInFeet.ceil()}ft";
     } else {
-      // Return meters
+      // return meters
       return "${heightInMeters.ceil()}m";
     }
   }
@@ -358,7 +358,7 @@ class Hour {
     // set current hour in "HH:mm"
     String currentHourMinute = DateFormat('HH:mm').format(DateTime.now());
 
-    // Compare current time
+    // compare current time
     if (hourMinute == currentHourMinute) {
       return "now";
     } else {
@@ -371,11 +371,11 @@ class Hour {
     int hour = hourDateTime.hour;
     int currentHour = DateTime.now().hour;
 
-    // Compare the hour
+    // compare the hour
     if (hour == currentHour) {
       return "Now";
     } else {
-      return hour.toString(); // Format as "HH"
+      return hour.toString(); // format as "HH"
     }
   }
 

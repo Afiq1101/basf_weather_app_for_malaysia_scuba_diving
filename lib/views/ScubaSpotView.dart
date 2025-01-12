@@ -1,15 +1,10 @@
-
-
 import 'dart:ui';
-
 import 'package:basf_weather_app_for_malaysia_scuba_diving/models/ScubaSpotModel.dart';
-import 'package:basf_weather_app_for_malaysia_scuba_diving/widget/InkWellButton.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:provider/provider.dart';
-
 import '../viewModels/ScubaSpotViewModel.dart';
 
 class ScubaSpotView extends StatelessWidget {

@@ -3,8 +3,6 @@ import 'dart:convert';
 
 class WeatherService{
 
-
-
   Future<Map<String, dynamic>> fetchMarineWeatherGenezio({
     required double long,
     required double lat,

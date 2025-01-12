@@ -1,6 +1,7 @@
 
 import 'package:flutter/material.dart';
 
+//stackable widget that is intended to be stack on top of UI widgets to create a custom splash and execute a function
 class InkWellButton extends StatelessWidget {
   final VoidCallback onTap;
   final double splashRadius;
@@ -25,7 +26,7 @@ class InkWellButton extends StatelessWidget {
             focusColor: Colors.transparent,
             splashColor: Colors.transparent,
             onTap: onTap,
-            borderRadius: BorderRadius.circular(22), // Adjust as needed
+            borderRadius: BorderRadius.circular(22),
           ),
         ),
       ),

@@ -1,4 +1,3 @@
-
 import 'package:basf_weather_app_for_malaysia_scuba_diving/models/ScubaSpotModel.dart';
 
 class ScubaSpotService{

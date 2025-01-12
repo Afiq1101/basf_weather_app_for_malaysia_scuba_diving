@@ -1,5 +1,3 @@
-
-
 import 'dart:convert';
 import 'dart:io';
 import 'package:path_provider/path_provider.dart';
@@ -27,7 +25,7 @@ class JsonStoreService {
 
       return [];
     } catch (e) {
-      print("Error reading stored scuba spots: $e");
+      print("Error [JsonStoreService.getStoredScubaSpots] reading stored scuba spots: $e");
       return [];
     }
   }
@@ -44,7 +42,7 @@ class JsonStoreService {
       final updatedJsonString = jsonEncode(storedScubaSpots.map((spot) => spot.toJson()).toList());
       await file.writeAsString(updatedJsonString);
     } catch (e) {
-      print("Error storing scuba spot: $e");
+      print("Error [JsonStoreService.storeScubaSpot] storing scuba spot: $e");
     }
   }
 
@@ -60,7 +58,7 @@ class JsonStoreService {
       final updatedJsonString = jsonEncode(storedScubaSpots.map((spot) => spot.toJson()).toList());
       await file.writeAsString(updatedJsonString);
     } catch (e) {
-      print("Error deleting scuba spot: $e");
+      print("Error [JsonStoreService.deleteScubaSpot] deleting scuba spot: $e");
     }
   }
 }

@@ -13,7 +13,6 @@ class CustomTheme with ChangeNotifier {
 
       primaryColor: const Color(0xFF2B9EF2),
       primaryColorDark: const Color(0xFFFFFEFE),
-      //Appbar Color
       scaffoldBackgroundColor: const Color(0xFFF0F0F2),
       primaryColorLight: const Color(0xFFf7f7f7),
       splashColor: Colors.transparent,

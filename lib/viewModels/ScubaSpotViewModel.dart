@@ -1,5 +1,3 @@
-import 'dart:io';
-import 'dart:ui';
 import 'package:basf_weather_app_for_malaysia_scuba_diving/services/CurrentLocationService.dart';
 import 'package:basf_weather_app_for_malaysia_scuba_diving/services/JsonStoreService.dart';
 import 'package:basf_weather_app_for_malaysia_scuba_diving/services/ScubaSpotService.dart';

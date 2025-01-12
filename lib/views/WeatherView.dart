@@ -1,5 +1,4 @@
 import 'dart:ui';
-
 import 'package:basf_weather_app_for_malaysia_scuba_diving/models/WeatherModel.dart';
 import 'package:basf_weather_app_for_malaysia_scuba_diving/services/SharedPreferencesService.dart';
 import 'package:basf_weather_app_for_malaysia_scuba_diving/viewModels/WeatherViewModel.dart';

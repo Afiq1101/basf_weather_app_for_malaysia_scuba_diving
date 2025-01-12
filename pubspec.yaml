@@ -26,7 +26,6 @@ dependencies:
     sdk: flutter
 
   location: ^7.0.1
-  geolocator: ^13.0.2
   http: ^1.2.2
   provider: ^6.1.2
   uuid: ^4.5.1
@@ -98,6 +97,11 @@ flutter:
     - assets/svg/sw_sun.svg
     - assets/svg/app_icon.PNG
     - assets/images/sw_icon.png
+    - assets/images/sw_icon_1152.png
+    - assets/images/sw_icon_960.png
+    - assets/images/sw_icon_288_no_bg.png
+    - assets/images/sw_icon_250_no_bg.png
+
 
 flutter_native_splash:
   color: "#338db8"
@@ -107,6 +111,12 @@ flutter_native_splash:
   android_gravity: center
   ios_content_mode: center
   fullscreen: true
+
+  android_12:
+    image: assets/images/sw_icon_960.png
+    icon_background_color: "#338db8"
+
+
 
 flutter_launcher_icons:
   image_path: "assets/images/sw_icon.png"
