@@ -67,20 +67,26 @@ class ScubaSpotViewModel extends ChangeNotifier{
 
 
   //filter to the spots by spotLabel
-  void searchScubaSpots(String query) {
+  searchScubaSpots(String query)  {
+
+    List<ScubaSpotModel> holdScubaSpots = filteredSpots;
+
     filteredSpots = [];
 
-    if(query.trim().isEmpty){
-      filteredSpots = ScubaSpotService.scubaSpots;
-    }else{
-      for(ScubaSpotModel spot in ScubaSpotService.scubaSpots){
+    if(query.trim().isNotEmpty){
+      for(ScubaSpotModel spot in holdScubaSpots){
         if( spot.scubaSpotLabel.toLowerCase().startsWith(query.toLowerCase())){
           filteredSpots.add(spot);
         }
       }
     }
-
     notifyListeners();
+  }
+
+  Future<void> resetListIfSearchIsEmpty(String query) async {
+    if(query.trim().isEmpty){
+      await resetScubaSpots();
+    }
   }
 
   //set scuba spots back to default
@@ -94,8 +100,13 @@ class ScubaSpotViewModel extends ChangeNotifier{
 
     List<ScubaSpotModel> storedScubaSpots = await jsonStoreService.getStoredScubaSpots();
 
-    for(ScubaSpotModel spotModel in storedScubaSpots){
-      filteredSpots.add(spotModel);
+    Set<String> uniqueSpotIds = filteredSpots.map((spot) => spot.id).toSet();
+
+    for (ScubaSpotModel spotModel in storedScubaSpots) {
+      if (!uniqueSpotIds.contains(spotModel.id)) {
+        filteredSpots.add(spotModel);
+        uniqueSpotIds.add(spotModel.id);
+      }
     }
 
     filteredSpots.sort((a, b) => b.priorityIndex.compareTo(a.priorityIndex));
@@ -157,7 +168,7 @@ class ScubaSpotViewModel extends ChangeNotifier{
       );
 
       await jsonStoreService.storeScubaSpot(newScubaSpot);
-      await resetScubaSpots();
+      filteredSpots.insert(0,newScubaSpot);
     }
 
     isLoading = false;
