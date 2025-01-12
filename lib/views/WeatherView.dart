@@ -11,6 +11,8 @@ import 'package:flutter/services.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:provider/provider.dart';
 import 'package:gauge_indicator/gauge_indicator.dart';
+import 'dart:io' show Platform;
+
 
 class WeatherView extends StatelessWidget {
   const WeatherView({super.key});
@@ -272,7 +274,7 @@ class WeatherView extends StatelessWidget {
                           child: BackdropFilter(
                             filter: ImageFilter.blur(sigmaX: 140.0, sigmaY: 30.0),
                             child: Container(
-                              height: 80,
+                              height: Platform.isIOS ? 80  : 100,
                               width: size.width,
                               decoration: BoxDecoration(
                                 color: Colors.white.withValues(alpha: 0.03),
@@ -280,7 +282,7 @@ class WeatherView extends StatelessWidget {
                                 border: Border.all(color: Theme.of(context).primaryColorDark.withValues(alpha: 0.3), width: 0.3,),
                               ),
                               child: Padding(
-                                padding: const EdgeInsets.only(bottom: 15.0),
+                                padding:  EdgeInsets.only(bottom: Platform.isIOS ?  15.0 : 30),
                                 child: Row(
                                   mainAxisAlignment: MainAxisAlignment.end,
                                   children: [

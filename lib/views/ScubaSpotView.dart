@@ -108,6 +108,9 @@ class ScubaSpotView extends StatelessWidget {
                                           ),
                                         ),
                                         onChanged: (text){
+                                          scubaSpotViewModel.resetListIfSearchIsEmpty(text);
+                                        },
+                                        onSubmitted: (text){
                                           scubaSpotViewModel.searchScubaSpots(text);
                                         },
                                       ),
