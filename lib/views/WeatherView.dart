@@ -8,6 +8,7 @@ import 'package:basf_weather_app_for_malaysia_scuba_diving/widget/InkWellButton.
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:provider/provider.dart';
 import 'package:gauge_indicator/gauge_indicator.dart';
@@ -270,7 +271,7 @@ class WeatherView extends StatelessWidget {
                         alignment: Alignment.bottomCenter,
                         child: ClipRRect(
                           child: BackdropFilter(
-                            filter: ImageFilter.blur(sigmaX: 100.0, sigmaY: 100.0),
+                            filter: ImageFilter.blur(sigmaX: 140.0, sigmaY: 30.0),
                             child: Container(
                               height: 80,
                               width: size.width,
