@@ -97,7 +97,7 @@ flutter:
     - assets/svg/sw_tides_low.svg
     - assets/svg/sw_sun.svg
     - assets/svg/app_icon.PNG
-    - assets/images/sw_icon.PNG
+    - assets/images/sw_icon.png
 
 flutter_native_splash:
   color: "#338db8"
@@ -111,10 +111,11 @@ flutter_native_splash:
 flutter_launcher_icons:
   image_path: "assets/images/sw_icon.png"
 
-  android: true
-  image_path_android: "assets/images/sw_icon.png"
-  min_sdk_android: 21
-
+  android: "launcher_icon"
+  min_sdk_android: 24
+  adaptive_icon_background: "#338db8"
+  adaptive_icon_foreground: "assets/images/sw_icon.png"
+  adaptive_icon_monochrome: "assets/images/sw_icon.png"
 
   ios: true
   image_path_ios: "assets/images/sw_icon.png"
