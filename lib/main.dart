@@ -3,14 +3,23 @@ import 'package:basf_weather_app_for_malaysia_scuba_diving/views/WeatherView.dar
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
-void main()  {
+// void main()  {
+//   WidgetsFlutterBinding.ensureInitialized();
+//   SystemChrome.setPreferredOrientations([
+//     DeviceOrientation.portraitUp,
+//   ]).then((_) {
+//     runApp(MyApp());
+//   });
+// }
+
+import 'package:flutter/services.dart';
+
+void main() {
   WidgetsFlutterBinding.ensureInitialized();
-  SystemChrome.setPreferredOrientations([
-    DeviceOrientation.portraitUp,
-  ]).then((_) {
-    runApp(MyApp());
-  });
+  SystemChrome.setEnabledSystemUIMode(SystemUiMode.edgeToEdge);
+  runApp(MyApp());
 }
+
 
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
